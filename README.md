@@ -16,5 +16,13 @@ Install dependencies
 
 ```npm install```
 
+Install these plugins for your editor
+- linter-eslint
+- prettier-atom
+- react
+- language-javascript-jsx
+- editoronfig
+- busy-signal
+
 
 
