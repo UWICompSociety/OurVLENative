@@ -19,6 +19,7 @@ Install dependencies
 Install these plugins for your editor
 - linter-eslint
 - prettier-atom
+- linter
 - react
 - language-javascript-jsx
 - editoronfig
