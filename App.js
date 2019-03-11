@@ -13,11 +13,9 @@ const styles = StyleSheet.create({
 class App extends React.Component {
   render() {
     return (
-      <div>
-        <View style={styles.container}>
-          <Text>Open up App.js to start working on your app!</Text>
-        </View>
-      </div>
+      <View style={styles.container}>
+        <Text>This is the start of OurVLE app</Text>
+      </View>
     );
   }
 }
