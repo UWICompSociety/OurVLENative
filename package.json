@@ -9,7 +9,12 @@
   "dependencies": {
     "expo": "^32.0.0",
     "react": "16.5.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz"
+    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
+    "react-navigation": "^3.5.1",
+    "react-redux": "^6.0.1",
+    "react-router-redux": "^4.0.8",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
@@ -60,6 +65,7 @@
       "import/no-extraneous-dependencies": "off",
       "import/no-named-as-default": "off",
       "react/forbid-prop-types": "off",
+      "react/prefer-stateless-function": "off",
       "no-param-reassign": "off",
       "jsx-a11y/anchor-is-valid": [
         "error",

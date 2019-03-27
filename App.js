@@ -1,23 +1,35 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {
+  Platform, StyleSheet, View, StatusBar,
+} from 'react-native';
+import { Provider } from 'react-redux';
+import AppNavigator from './src/navigation/AppNavigator';
+import configureStore from './src/store/configureStore';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
 
-class App extends React.Component {
+function getInitialState() {
+  return {
+    auth: {
+      token: '',
+    },
+  };
+}
+export default class App extends React.Component {
   render() {
+    const store = configureStore(getInitialState());
     return (
-      <View style={styles.container}>
-        <Text>This is the start of OurVLE app</Text>
-      </View>
+      <Provider store={store}>
+        <View style={styles.container}>
+          {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+          <AppNavigator />
+        </View>
+      </Provider>
     );
   }
 }
-
-export default App;
