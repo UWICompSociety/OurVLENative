@@ -18,10 +18,27 @@ class Container extends React.Component {
     password: '',
   };
 
-  logIn = () => {
+  logIn = async () => {
     // validate username and password input
     // make request to api
     // if succesfull set token and go to home page
+    const { username } = this.state;
+    const { password } = this.state;
+    const { host } = 'http://ourvle.mona.uwi.edu';
+    fetch(
+      `http://ourvle.mona.uwi.edu/login/token.php?username=${
+        username
+      }&password=${
+        password
+      }&service=moodle_mobile_app`,
+    )
+      .then(response => response.json())
+      .then((responseJson) => {
+        this.setToken(responseJson.token);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   goToHome = () => {
@@ -36,6 +53,7 @@ class Container extends React.Component {
   };
 
   setToken = (token) => {
+    console.log(token);
     const { dispatch } = this.props;
     dispatch(loginUser(token));
   };
