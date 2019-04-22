@@ -34,7 +34,9 @@ class Container extends React.Component {
     )
       .then(response => response.json())
       .then((responseJson) => {
-        this.setToken(responseJson.token);
+        if ('token' in responseJson) {
+          this.setToken(responseJson.token);
+        }
       })
       .catch((error) => {
         console.error(error);
@@ -56,6 +58,7 @@ class Container extends React.Component {
     console.log(token);
     const { dispatch } = this.props;
     dispatch(loginUser(token));
+    goToHome();
   };
 
   getToken = () => {
