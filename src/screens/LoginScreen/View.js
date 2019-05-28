@@ -43,6 +43,7 @@ export const LoginView = ({
       style={{ height: 40 }}
       onChangeText={handlePasswordInput}
       placeholder="Password"
+      secureTextEntry
       value={password}
     />
     <Button

@@ -24,20 +24,16 @@ class Container extends React.Component {
     // if succesfull set token and go to home page
     const { username } = this.state;
     const { password } = this.state;
-    const { host } = 'http://ourvle.mona.uwi.edu';
     fetch(
-      `http://ourvle.mona.uwi.edu/login/token.php?username=${
-        username
-      }&password=${
-        password
-      }&service=moodle_mobile_app`,
+      `http://ourvle.mona.uwi.edu/login/token.php?username=${username}&password=${password}&service=moodle_mobile_app`,
     )
       .then(response => response.json())
       .then((responseJson) => {
-        this.setToken(responseJson.token);
+        this.setToken(responseJson);
+        this.goToHome();
       })
-      .catch((error) => {
-        console.error(error);
+      .catch(() => {
+        // console.error(error);
       });
   };
 
@@ -53,7 +49,7 @@ class Container extends React.Component {
   };
 
   setToken = (token) => {
-    console.log(token);
+    // console.log(token);
     const { dispatch } = this.props;
     dispatch(loginUser(token));
   };
